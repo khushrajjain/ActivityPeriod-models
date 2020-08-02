@@ -8,16 +8,16 @@ Design and implementation of a Django application with User and ActivityPeriod m
 ---
 
  - JSON response of all the User and ActivityPeriods
-    - {URL} + /
     - [Click here for Live View](http://3.6.165.171:4200/)
+    - >{URL} + /
 
  - Generate 1 Random User 
-    - {URL} + /generateuser
     - [Link to Generate Random User](http://3.6.165.171:4200/generateuser)
+    - >{URL} + /generateuser
 
  - Generate Activity For Random User
-    - {URL} + /generateactivity
     - [Link to Generate Activity for User](http://3.6.165.171:4200/generateactivity)
+    - >{URL} + /generateactivity
 
 
 <br>
