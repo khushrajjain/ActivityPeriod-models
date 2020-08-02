@@ -31,21 +31,21 @@ def home(request):
         
     return HttpResponse(json.dumps(user_activity), content_type='application/json')
 
+
+
 def generateuser(request):
     faker = Faker()
-    
     User.objects.create(real_name = faker.name(),tz = faker.timezone())
-        # faker.name()
         
-    
     return HttpResponse("New User Generated generated sucessfully go Back and refresh to see new Json")
 
+
+
 def generateactivity(request):
-    
-    UserActivity.objects.create(u_id = User.objects.order_by("?").first(),
+    rand_user = User.objects.order_by("?").first()
+    UserActivity.objects.create(u_id = rand_user,
                                 start_time=datetime.now(),
                                 end_time=datetime.now() + timedelta(days=random.randrange(0,1),minutes=random.randrange(10,100)) )
-    # print(User.objects.order_by("?").first().u_id)
     
-    return HttpResponse("Activity Period Generated generated sucessfully go Back to see new Json")
+    return HttpResponse("Activity Period Generated sucessfully for => " + rand_user.real_name +" <=go Back to see new Json")
     
