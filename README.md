@@ -19,3 +19,5 @@ Design and implementation of a Django application with User and ActivityPeriod m
 - Install all the packages
     <pre><code>pip install -r requirements.txt</pre></code>
 
+
+
