@@ -10,10 +10,10 @@ Design and implementation of a Django application with User and ActivityPeriod m
     - {URL} + /
 
  - Generate 1 Random User 
-    - {url} + /generateuser
+    - {URL} + /generateuser
 
  - Generate Activity For Random User
-    - {url} + /generateactivity
+    - {URL} + /generateactivity
 </pre>
 <br>
 <br>
