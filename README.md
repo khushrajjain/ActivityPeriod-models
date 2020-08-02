@@ -4,17 +4,22 @@ Design and implementation of a Django application with User and ActivityPeriod m
 <br>
 
 ## using the Application & API Endpoints
+[Click here for Live View](http://3.6.165.171:4200/)
 ---
-<pre>
+
  - JSON response of all the User and ActivityPeriods
     - {URL} + /
+    - [Click here for Live View](http://3.6.165.171:4200/)
 
  - Generate 1 Random User 
     - {URL} + /generateuser
+    - [Link to Generate Random User](http://3.6.165.171:4200/generateuser)
 
  - Generate Activity For Random User
     - {URL} + /generateactivity
-</pre>
+    - [Link to Generate Activity for User](http://3.6.165.171:4200/generateactivity)
+
+
 <br>
 <br>
 
