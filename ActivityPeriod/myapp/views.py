@@ -3,7 +3,11 @@ from django.http import HttpResponse
 from .models import *
 from django.http import JsonResponse
 from django.core.serializers import serialize
-import json,jsonify
+import json
+import pytz,random
+from faker import Faker
+from datetime import datetime  
+from datetime import timedelta 
 
 
 def home(request):
@@ -17,10 +21,31 @@ def home(request):
         data["tz"] = str(user.tz)
         activity_val = []
         for activity in UserActivity.objects.filter(u_id = user.u_id):
-            activity_val.append({'start_time':str(activity.in_time),'end_time':str(activity.out_time)})
+            activity_val.append({
+                'start_time':activity.start_time.strftime("%b %d %Y %I:%M%p"),
+                'end_time':activity.end_time.strftime("%b %d %Y %I:%M%p")})
         data["activity_periods"] = activity_val
         members.append(data)
         
     user_activity = {"ok":True,"members":members}
         
     return HttpResponse(json.dumps(user_activity), content_type='application/json')
+
+def generateuser(request):
+    faker = Faker()
+    
+    User.objects.create(real_name = faker.name(),tz = faker.timezone())
+        # faker.name()
+        
+    
+    return HttpResponse("New User Generated generated sucessfully go Back and refresh to see new Json")
+
+def generateactivity(request):
+    
+    UserActivity.objects.create(u_id = User.objects.order_by("?").first(),
+                                start_time=datetime.now(),
+                                end_time=datetime.now() + timedelta(days=random.randrange(0,1),minutes=random.randrange(10,100)) )
+    # print(User.objects.order_by("?").first().u_id)
+    
+    return HttpResponse("Activity Period Generated generated sucessfully go Back to see new Json")
+    
