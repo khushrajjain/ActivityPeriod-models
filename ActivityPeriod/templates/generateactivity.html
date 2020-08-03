@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block generateactivity %}
+
+<h5>"Activity Period Generated sucessfully for =>  {{name}}  <=go Back to see new Json"</h5>
+<button type="submit" onclick="location.href='{% url 'home' %}'">Go to activity page</button>
+
+
+<br>
+
+{% endblock %}  

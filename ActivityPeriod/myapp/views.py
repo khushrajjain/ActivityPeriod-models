@@ -32,8 +32,11 @@ def home(request):
         members.append(data)
         
     user_activity = {"ok":True,"members":members}
+    data = {
+        "json":json.dumps(user_activity,indent=4)
+    }
         
-    return HttpResponse(json.dumps(user_activity), content_type='application/json')
+    return render(request, "activity.html",data)
 
 
 # Generating Random Users
@@ -41,7 +44,7 @@ def generateuser(request):
     faker = Faker() # facker Object for creating random data
     User.objects.create(real_name = faker.name(),tz = faker.timezone())
         
-    return HttpResponse("New User Generated generated sucessfully go Back and refresh to see new Json")
+    return render(request, "generateuser.html",{"name":"user"})
 
 
 # Generate Activity For Random User
@@ -52,5 +55,5 @@ def generateactivity(request):
                                 start_time=datetime.now(),
                                 end_time=datetime.now() + timedelta(days=random.randrange(0,1),minutes=random.randrange(10,100)) )
     
-    return HttpResponse("Activity Period Generated sucessfully for => " + rand_user.real_name +" <=go Back to see new Json")
+    return render(request, "generateactivity.html",{"name":rand_user.real_name})
     

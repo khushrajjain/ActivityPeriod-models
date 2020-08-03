@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{data.real_name}}</h1>
+
+<button type="submit" onclick="location.href='{% url 'generateuser' %}'">Generate New User</button>
+<button type="submit" onclick="location.href='{% url 'generateactivity' %}'">Generate Activity For Random user</button>
+<br>
+
+<pre>{{json}}</pre>
 
 
     {% endblock %}
